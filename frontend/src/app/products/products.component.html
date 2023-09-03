@@ -1,0 +1,43 @@
+<h1>Product Table</h1>
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchQuery"
+         (ngModelChange)="searchProducts()" placeholder="Search products" class="search-input">
+</div>
+
+
+
+<div class="center-align">
+  <button type="button" class="btn-add" (click)="addProduct()">Add Product</button>
+</div>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{ product.productName }}</td>
+    <td>{{ product.productDescription }}</td>
+    <td>{{ product.productType }}</td>
+    <td>{{ product.productPrice }}</td>
+    <td>
+      <img [src]="product.productImagePath" alt="Product Image" width="50" height="50">
+    </td>
+
+    <td class="button-cell">
+      <button class="btn-delete" type="button" (click)="deleteProduct(product.id)">Delete Product</button>
+      <button class="btn-edit" type="button" (click)="editProduct(product.id)">Edit Product</button>
+      <button class="btn-details" type="button" (click)="detailProduct(product.id)">Product Details</button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>

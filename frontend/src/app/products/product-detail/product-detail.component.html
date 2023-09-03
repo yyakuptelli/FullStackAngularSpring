@@ -1,0 +1,27 @@
+<div class="center-container">
+  <div class="product-details">
+    <h2>Product Details of {{product.productName}}</h2>
+    <div>
+      <strong>Product Name:</strong> {{ product.productName }}
+    </div>
+    <div>
+      <strong>Description:</strong> {{ product.productDescription }}
+    </div>
+    <div>
+      <strong>Type:</strong> {{ product.productType }}
+    </div>
+    <div>
+      <strong>Price:</strong> {{ product.productPrice | currency }}
+    </div>
+    <div>
+      <img [src]="product.productImagePath" alt="Product Image" width="600" height="500">
+    </div>
+
+
+  </div>
+  <div class="center-align">
+    <button class="btn-back" type="button" (click)="BackToProductList()">Back To Product List</button>
+  </div>
+</div>
+
+

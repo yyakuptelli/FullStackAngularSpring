@@ -1,0 +1,36 @@
+<div class="center-container">
+    <h2>Edit Product</h2>
+    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+      <div class="form-group">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" [(ngModel)]="product.productName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="productDescription">Description:</label>
+        <input id="productDescription" type="text" name="productDescription" [(ngModel)]="product.productDescription">
+      </div>
+
+      <div class="form-group">
+        <label for="productType">Type:</label>
+        <select id="productType" name="productType" [(ngModel)]="product.productType">
+          <option *ngFor="let type of productTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="productPrice">Price:</label>
+        <input type="number" id="productPrice" name="productPrice" [(ngModel)]="product.productPrice">
+      </div>
+
+      <div class="form-group">
+        <label for="productImagePath">Image Path:</label>
+        <input type="file" id="productImagePath" name="productImagePath" (change)="handleFileInput($event)">
+      </div>
+
+      <button type="submit">Save</button>
+    </form>
+    <div class="center-align">
+      <button class="btn-back" type="button" (click)="backToProductList()">Back To Product List</button>
+    </div>
+</div>
